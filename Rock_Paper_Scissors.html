@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors</title>
+	<link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+	<style type="text/css">
+		.background{
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+body{
+	color: #ffffff;
+}
+
+.box{
+	background: #b90909;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	margin-left: 300px;
+	margin-right: 300px;
+	padding-top: 5px;
+	padding-bottom :5px;
+	opacity: 0.6;
+
+}
+
+.instruction{
+	text-align: center;
+	font-size: 40px;
+	font-family: 'Barrio', cursive;
+}
+
+h1{
+	text-align: center;
+	font-family: 'Barrio', cursive;
+
+}
+
+	</style>
+	<script type="text/javascript">
+		
+		var rps = ["r","p","s"];
+		var lose = 0;
+		var win = 0;
+		var tie = 0;
+		var dumb = 0;
+
+		document.onkeyup = function(event){
+			var userGuess = event.key; 
+			//alert(userGuess); 
+
+			var computerGuess = rps[Math.floor(Math.random() * rps.length)];
+			//alert(computerGuess);
+			if(userGuess === "r"){
+				if(computerGuess === "r"){
+					alert("It is a tie!");
+					tie = tie+1;
+					document.getElementById("tie").innerHTML = tie;
+				}else if (computerGuess === "s") {
+					alert("You win!");
+					win = win+1;
+					document.getElementById("win").innerHTML = win;
+				}else{
+					alert("You lose!");
+					lose = lose+1;
+					document.getElementById("lose").innerHTML = lose;
+				}
+			}else if (userGuess === "p") {
+				if(computerGuess === "p"){
+					alert("It is a tie!");
+					tie = tie+1;
+					document.getElementById("tie").innerHTML = tie;
+				}else if (computerGuess === "s") {
+					alert("You win!");
+					win = win+1;
+					document.getElementById("win").innerHTML = win;
+				}else{
+					alert("You lose!");
+					lose = lose+1;
+					document.getElementById("lose").innerHTML = lose;
+				}
+			}else if(userGuess === "s"){
+				if(computerGuess === "s"){
+					alert("It is a tie!");
+					tie = tie+1;
+					document.getElementById("tie").innerHTML = tie;
+				}else if (computerGuess === "p") {
+					alert("You win!");
+					win = win+1;
+					document.getElementById("win").innerHTML = win;
+				}else{
+					alert("You lose!");
+					lose = lose+1;
+					document.getElementById("lose").innerHTML = lose;
+				}
+			}else{
+				alert("Wrong key dummy!");
+				dumb = dumb+1;
+					document.getElementById("dumb").innerHTML = dumb;
+			}
+
+
+		}
+
+
+
+	</script>
+</head>
+<body>
+
+<div class="background">
+		<video preload="auto" autoplay="" poster="/images/bg.jpg" loop="" muted="" class="fullscreen_background">
+			<source src="https://player.vimeo.com/external/178812339.hd.mp4?s=bf1db383854643d8d92aac96a5bca01802122d46&amp;profile_id=174" type="video/mp4">
+		</video></background>
+</div>
+
+<h1>Welcome to Rima and Samson's AMAZZZZING Rock-Paper-Scissors game</h1>
+<p class="instruction">Press "r", "p" or "s" to play!</p><br>
+<div class="box"><p>tie : <div id="tie"><strong>...</strong></div></p></div>
+<div class="box"><p>win : <div id="win"><strong>...</strong></div></p></div>
+<div class="box"><p>lose : <div id="lose"><strong>...</strong></div></p></div>
+<div class="box"><p>Dumb : <div id="dumb"><strong>...</strong></div></p></p></div>
+</body>
+</html>
